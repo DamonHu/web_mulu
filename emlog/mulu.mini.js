@@ -109,7 +109,7 @@ var BlogDirectory = {
         divSideBar.appendChild(divSideBarTab);
         var h2 = document.createElement('H3');
         divSideBarTab.appendChild(h2);
-        var txt = document.createTextNode('点击查看目录');
+        var txt = document.createTextNode('展开目录');
         h2.appendChild(txt);
         var divSideBarContents = document.createElement('DIV');
         divSideBarContents.style.display = 'none';
@@ -157,13 +157,14 @@ var BlogDirectory = {
                 num++;
             }
         }
-        
+        var txt2 = document.createTextNode('关闭目录');
         if(num == 0) return false; 
         /*鼠标进入时的事件处理*/
         divSideBarTab.onclick = function(){
             
             if (divSideBarContents.style.display == 'none') {
                 divSideBarContents.style.display = 'block';
+                h2.replaceChild(txt2,txt);
             }
             // if (divSideBarContents.style.display == 'block') {
             //     divSideBarContents.style.display = 'none';
@@ -171,6 +172,7 @@ var BlogDirectory = {
             else {
                 // alert(divSideBarContents.style.display == 'block');
                 divSideBarContents.style.display = 'none';
+                h2.replaceChild(txt,txt2);
             }
             
         }
